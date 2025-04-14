@@ -1,0 +1,15 @@
+[project]
+name = "Data-Lakes-tp1-student"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Arthur Gatignol", email = "arthur.gatignol@efrei.net"},
+]
+dependencies = ["pandas>=2.2.3", "joblib>=1.4.2", "tqdm>=4.67.1", "sklearn>=0.0.post12", "scikit-learn>=1.6.1", "torch>=2.6.0", "matplotlib>=3.9.4", "seaborn>=0.13.2", "ipykernel>=6.29.5", "jupyter>=1.1.1", "ruff>=0.11.5"]
+requires-python = "==3.9.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false

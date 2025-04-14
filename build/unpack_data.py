@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-import re
 
 def unpack_data(input_dir: str, output_file: str) -> None:
     """
@@ -28,7 +27,7 @@ def unpack_data(input_dir: str, output_file: str) -> None:
             # Step 5: Append the DataFrame to the list
             data.append(df)
             
-            print(f"🎉 File read successfull!")
+            print("🎉 File read successfull!")
 
     # Step 6: Concatenate all DataFrames
     result = pd.concat(data)

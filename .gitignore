@@ -1,5 +1,7 @@
-.data-lakes/
+.venv/
 .python-version
 __pycache__/
 .DS_Store/
 data/
+.pdm-python
+.ruff_cache/

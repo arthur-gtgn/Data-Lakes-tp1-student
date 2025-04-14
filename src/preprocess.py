@@ -37,10 +37,12 @@ def preprocess_data(data_file, output_dir):
     data['class_encoded'] = label_encoder.fit_transform(data['family_accession'])
 
     # Save the label encoder
-    joblib.dump(...)
+    joblib.dump(data['class_encoded'])
 
     # Save the label mapping to a text file
-    # with open(...)
+    with open(f"{output_dir}/label_mapping.txt", "w") as f:
+        for label, idx in zip(label_encoder.classes_, range(len(label_encoder.classes_))):
+            f.write(f"{label}: {idx}\n")
 
     # Step 4: Distribute data
     # For each unique class:
@@ -50,7 +52,14 @@ def preprocess_data(data_file, output_dir):
     # - Else: stratified split (train/dev/test)
 
     print("Distributing data")
-    # for cls in tqdm.tqdm(...):
+    for cls in tqdm.tqdm(label_encoder.classes_):
+        # Get indices for the current class
+        indices = data[data['family_accession'] == cls].index.tolist()
+        count = len(indices)
+        if count == 1:
+            data.loc[indices, 'set'] = 'test'
+        elif count == 2:
+            pass
 
         # Logic for assigning indices to train/dev/test
 
