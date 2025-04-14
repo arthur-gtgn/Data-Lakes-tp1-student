@@ -1,7 +1,8 @@
 import os
 import pandas as pd
+import re
 
-def unpack_data(input_dir, output_file):
+def unpack_data(input_dir: str, output_file: str) -> None:
     """
     Unpacks and combines multiple CSV files from a directory into a single CSV file.
 
@@ -11,21 +12,29 @@ def unpack_data(input_dir, output_file):
     """
 
     # Step 1: Initialize an empty list to store DataFrames
+    data = []
 
     # Step 2: Loop over files in the input directory
-
+    for filename in os.listdir(input_dir):
+        
+        print(f"🔨 Processing file {filename}")
+        
         # Step 3: Check if the file is a CSV or matches a naming pattern
+        if "data-" in filename:
 
-        # Step 4: Read the CSV file using pandas
+            # Step 4: Read the CSV file using pandas
+            df = pd.read_csv(f'{input_dir}/{filename}')
 
-        # Step 5: Append the DataFrame to the list
+            # Step 5: Append the DataFrame to the list
+            data.append(df)
+            
+            print(f"🎉 File read successfull!")
 
     # Step 6: Concatenate all DataFrames
-
+    result = pd.concat(data)
+    
     # Step 7: Save the combined DataFrame to output_file
-
-    pass
-
+    result.to_csv(output_file)
 
 if __name__ == "__main__":
     import argparse

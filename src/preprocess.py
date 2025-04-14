@@ -27,17 +27,17 @@ def preprocess_data(data_file, output_dir):
 
     # Step 1: Load the data
     print('Loading Data')
-    # data = pd.read_csv(...)
+    data = pd.read_csv(data_file)
 
     # Step 2: Handle missing values
-    # data = data.dropna()
+    data = data.dropna()
 
     # Step 3: Encode the 'family_accession' to numeric labels
-    # label_encoder = LabelEncoder()
-    # data['class_encoded'] = label_encoder.fit_transform(...)
+    label_encoder = LabelEncoder()
+    data['class_encoded'] = label_encoder.fit_transform(data['family_accession'])
 
     # Save the label encoder
-    # joblib.dump(...)
+    joblib.dump(...)
 
     # Save the label mapping to a text file
     # with open(...)
