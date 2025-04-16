@@ -4,10 +4,10 @@
 
 ### Install the Requirements
 
-Install the necessary packages using the requirements file found in the `build` folder:
+Install the necessary packages using `pdm`:
 
 ```bash
-pip install -r build/requirements.txt
+pdm install
 ```
 
 ### Download the Data
